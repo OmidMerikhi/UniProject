@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using UniProject.DataLayer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<UniProjectContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("UniProjectContext"));
+});
 
 var app = builder.Build();
 

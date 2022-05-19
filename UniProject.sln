@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniProject", "UniProject\UniProject.csproj", "{F83D9C75-6143-4E9E-B80C-09E087F06B77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniProject", "UniProject\UniProject.csproj", "{F83D9C75-6143-4E9E-B80C-09E087F06B77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniProject.DataLayer", "UniProject.DataLayer\UniProject.DataLayer.csproj", "{37252148-ABFB-4B4C-92FB-4B6BD70DB4C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniProject.Utility", "UniProject.Utility\UniProject.Utility.csproj", "{DAE894B3-A4E2-4D26-BDD1-352A6710BC5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{F83D9C75-6143-4E9E-B80C-09E087F06B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F83D9C75-6143-4E9E-B80C-09E087F06B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F83D9C75-6143-4E9E-B80C-09E087F06B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37252148-ABFB-4B4C-92FB-4B6BD70DB4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37252148-ABFB-4B4C-92FB-4B6BD70DB4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37252148-ABFB-4B4C-92FB-4B6BD70DB4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37252148-ABFB-4B4C-92FB-4B6BD70DB4C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE894B3-A4E2-4D26-BDD1-352A6710BC5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE894B3-A4E2-4D26-BDD1-352A6710BC5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE894B3-A4E2-4D26-BDD1-352A6710BC5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE894B3-A4E2-4D26-BDD1-352A6710BC5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

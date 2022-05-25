@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using UniProject.DataLayer;
+using UniProject.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,10 @@ builder.Services.AddDbContext<UniProjectContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("UniProjectContext"));
 });
+#region IoC
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+#endregion
+
 
 var app = builder.Build();
 

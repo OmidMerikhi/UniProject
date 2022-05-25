@@ -17,14 +17,11 @@ namespace UniProject.DataLayer.Entites
         public bool IsAdmin { set; get; }
         public string MeliCode { set; get; }
         public int Age { set; get; }
-        public bool Gender { set; get; }
         public string Phone { set; get; }
         public string Email { set; get; }
         public string City { set; get; }
-        public string Address { set; get; }
         public DateTime JoinDate { set; get; }
         public List<Doctor> FavoriteDoctors { set; get; }
-        public List<DiseaseCategory> BackgroundDiseases { set; get; }
 
 
     }

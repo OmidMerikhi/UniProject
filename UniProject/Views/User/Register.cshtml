@@ -1,0 +1,98 @@
+﻿@model UniProject.DataLayer.DTOs.RegisterViewModel
+@{
+    ViewData["Title"] = "ثبت نام در سایت";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ثبت نام در سایت</title>
+
+</head>
+<body>
+    <div style="background-image:url('/images/back-login.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <h4 class="text-center">ثبت نام در سایت</h4>
+        <hr />
+
+        <br />
+        
+        
+             <h5 class="text-center">آیا از قبل حساب کاربری دارید؟ 
+            <a href="/User/Login">وارد سایت شوید</a></h5>
+            <br />
+
+        <div class="row">
+            <div class="col-md-4" style="margin:0 auto 0; background-color:rgba(154, 194, 166,0.3);border-radius:10px;border:1px #9CA2A1  solid;">
+                <form asp-action="Login" method="post" style="color:black;" class="text-center">
+                    <br /><br />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Family" class="control-label"></label>
+                        <input asp-for="Family" class="form-control" />
+                        <span asp-validation-for="Family" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MeliCode" class="control-label"></label>
+                        <input asp-for="MeliCode" class="form-control" />
+                        <span asp-validation-for="MeliCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Age" class="control-label"></label>
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Phone" class="control-label"></label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="City" class="control-label"></label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RePassword" class="control-label"></label>
+                        <input asp-for="RePassword" class="form-control" />
+                        <span asp-validation-for="RePassword" class="text-danger"></span>
+                    </div><br />
+                    <div class="form-group">
+                        <input type="submit" value="ثبت نام" class="btn btn-success col-md-6" />
+                    </div>
+                    <br /><br />
+                </form>
+
+            </div>
+
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+
+    </div>
+</body>
+</html>

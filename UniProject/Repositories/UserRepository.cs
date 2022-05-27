@@ -20,5 +20,20 @@ namespace UniProject.Repositories
         {
             return _context.Users.Any(u=> u.Email==email || u.Phone==phone);
         }
+
+        public User GetUserByEmail(string email)
+        {
+            return _context.Users.FirstOrDefault(u => u.Email == email);
+        }
+
+        public User GetUserById(int id)
+        {
+            return _context.Users.Find(id);
+        }
+
+        public bool MatchLoginInfo(string email, string password)
+        {
+            return _context.Users.Any(u => u.Email == email && u.Password == password);
+        }
     }
 }

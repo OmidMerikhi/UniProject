@@ -58,5 +58,16 @@ namespace UniProject.DataLayer.DTOs
 
     public class LoginViewModel
     {
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = "ایمیل")]
+        public string Email { set; get; }
+
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = "پسوورد")]
+        [DataType(DataType.Password)]
+        public string Password { set; get; }
+
+        [Display(Name = "مرا بخاطر بسپار")]
+        public bool RememberMe { set; get; }
     }
 }

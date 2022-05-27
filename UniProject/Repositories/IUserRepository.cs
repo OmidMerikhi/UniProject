@@ -6,5 +6,8 @@ namespace UniProject.Repositories
     {
         void AddUser(User user);
         bool ExistUser(string email,string phone);
+        bool MatchLoginInfo(string email, string password);
+        User GetUserByEmail(string email);
+        User GetUserById(int id);
     }
 }

@@ -1,0 +1,89 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "داشبورد";
+}
+<div style="background-image:url('/userImages/back-user-page.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="margin-top:200px;margin-bottom:200px;">
+                    <div class="card-img-top" style="background-color:#C5DBCC;height:200px;">
+                        <img src="~/userImages/avatar.jpg" style="width:110px;height:110px;border-radius:60px; margin-right:70px; margin-top:40px;" class="card-img-top">
+
+                        <center>
+                            <h5 style="margin-top:10px;">@Model.Name @Model.Family</h5>
+                        </center>
+                    </div>
+
+                    <div class="card-body">
+                        <ul>
+                            <li><a href="#">مشاهده حساب کاربری</a></li>
+                            <li><a href="#">ویرایش حساب کاربری</a></li>
+                            <li><a href="#">تغییر کلمه عبور</a></li>
+                            <li><a href="#">دکتر های خود</a></li>
+                            <li><a href="#">مشاهده سوابق مشاوره</a></li>
+                            <li><a href="#">رزرو مشاوره</a></li>
+                            <li><a href="/User/Logout" style="color:red;">خروج </a></li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card" style="margin-top:200px;margin-bottom:200px;">
+                    <div class="card-img-top" style="background-color:aqua;height:150px;">
+                        <img src="~/userImages/header-user-page.jpg" style="width:100%;height:150px;" class="card-img-top" alt="...">
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title">اطلاعات حساب کاربری</h5>
+                        <br />
+                        <table class="table table-hover">
+                            <tr>
+                                <td>نام</td>
+                                <td>@Model.Name</td>
+                            </tr>
+                            <tr>
+                                <td>نام خانوادگی</td>
+                                <td>@Model.Family</td>
+                            </tr>
+                            <tr>
+                                <td>کد ملی</td>
+                                <td>@Model.MeliCode</td>
+                            </tr>
+                            <tr>
+                                <td>تلفن</td>
+                                <td>@Model.Phone</td>
+                            </tr>
+                            <tr>
+                                <td>ایمیل</td>
+                                <td>@Model.Email</td>
+                            </tr>
+                            <tr>
+                                <td>سن</td>
+                                <td>@Model.Age</td>
+                            </tr>
+                            <tr>
+                                <td>شهر محل سکونت</td>
+                                <td>@Model.City</td>
+                            </tr>
+                            <tr>
+                                <td>تاریخ عضویت</td>
+                                <td>@Model.JoinDate</td>
+                            </tr>
+                            
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

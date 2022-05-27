@@ -2,6 +2,10 @@
 using UniProject.DataLayer.DTOs;
 using UniProject.Repositories;
 using UniProject.DataLayer.Entites;
+using System.Security.Claims;
+using System.Security;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace UniProject.Controllers
 {
@@ -12,20 +16,77 @@ namespace UniProject.Controllers
         {
             _repository = repository;
         }
+
+
+        #region Login
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(RegisterViewModel register)
+        public IActionResult Login(LoginViewModel login)
         {
             if(!ModelState.IsValid)
+            {
+                return View(login);
+            }
+            if(_repository.MatchLoginInfo(login.Email,login.Password)==false)
+            {
+                ModelState.AddModelError("Email", "اطلاعات وارد شده اشتباه است");
+                return View(login);
+            }
+
+            var user=_repository.GetUserByEmail(login.Email);
+            if(user!=null)
+            {
+                var claims = new List<Claim>()
+                {
+                    new Claim("Email",user.Email),
+                    new Claim("FullName",user.Name+" "+user.Family),
+                    new Claim("IsAdmin",user.IsAdmin.ToString()),
+                    new Claim("UserId",user.Id.ToString())
+
+                };
+
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme); ;
+                var principal=new ClaimsPrincipal(identity);
+                var properties = new AuthenticationProperties()
+                {
+                    IsPersistent = login.RememberMe
+                };
+
+                HttpContext.SignInAsync(principal, properties);
+                return Redirect("/");
+            }
+            return BadRequest();
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return Redirect("/User/Login");
+        }
+
+
+
+        #endregion
+
+        #region Register
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(RegisterViewModel register)
+        {
+            if (!ModelState.IsValid)
             {
                 return View(register);
             }
 
-            if(_repository.ExistUser(register.Email,register.Phone))
+            if (_repository.ExistUser(register.Email, register.Phone))
             {
                 ModelState.AddModelError("Name", "کاربری با چنین مشخصات قبلا ثبت نام کرده است");
                 return View(register);
@@ -47,10 +108,18 @@ namespace UniProject.Controllers
             _repository.AddUser(user);
             return RedirectToAction("SuccessRegister");
         }
+        #endregion
 
-        public IActionResult SuccessRegister()
+        #region UserPage
+        public IActionResult UserPage()
         {
-            return View();
+            var userEmail = User.FindFirstValue("Email");
+            var user = _repository.GetUserByEmail(userEmail);
+            return View(user);
         }
+        #endregion
+
+
+
     }
 }

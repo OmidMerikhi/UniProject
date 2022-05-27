@@ -1,0 +1,14 @@
+﻿@font-face{
+    font-family:farsi;
+    src:url("../fonts/Mj_Farsi Simple Normal_0.ttf");
+
+}
+
+@font-face{
+    font-family:yekan;
+    src:url("../fonts/Yekan.ttf");
+}
+
+*{
+    font-family:yekan;
+}

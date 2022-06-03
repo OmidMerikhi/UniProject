@@ -16,9 +16,20 @@ namespace UniProject.Repositories
             _context.SaveChanges();
         }
 
+        public void EditUser(User user)
+        {
+            _context.Update(user);
+            _context.SaveChanges();
+        }
+
         public bool ExistUser(string email, string phone)
         {
             return _context.Users.Any(u=> u.Email==email || u.Phone==phone);
+        }
+
+        public bool ExistUserByPassword(string password)
+        {
+            return _context.Users.Any(u => u.Password == password);
         }
 
         public User GetUserByEmail(string email)

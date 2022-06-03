@@ -49,7 +49,7 @@ namespace UniProject.Controllers
 
                 };
 
-                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme); ;
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme); 
                 var principal=new ClaimsPrincipal(identity);
                 var properties = new AuthenticationProperties()
                 {
@@ -118,6 +118,72 @@ namespace UniProject.Controllers
             return View(user);
         }
         #endregion
+
+        #region EditUserPage
+        public IActionResult EditUserPage(int id)
+        {
+            var user = _repository.GetUserById(id);
+            var editUser = new EditViewModel()
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Family = user.Family,
+                Age = user.Age,
+                City = user.City,
+                Email = user.Email,
+                Phone = user.Phone
+            };
+            return View(editUser);
+        }
+
+        [HttpPost]
+        public IActionResult EditUserPage(EditViewModel edit)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(edit);
+            }
+
+            var user = _repository.GetUserById(edit.Id);
+            user.Name = edit.Name;
+            user.Family = edit.Family;
+            user.Age = edit.Age;
+            user.City = edit.City;
+            user.Email = edit.Email;
+            user.Phone = edit.Phone;
+            _repository.EditUser(user);
+            return RedirectToAction("UserPage");
+
+        }
+        #endregion
+
+        #region ResetPassword
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ResetPassword(ResetPasswordViewModel reset)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(reset);
+            }
+
+            if(!_repository.ExistUserByPassword(reset.CurrentPassword))
+            {
+                ModelState.AddModelError("CurrentPassword", "پسوورد فعلی اشتباه است");
+                return View(reset);
+            }
+            var user = _repository.GetUserByEmail(User.FindFirstValue("Email"));
+            user.Password = reset.NewPassword;
+            _repository.EditUser(user);
+            return RedirectToAction("UserPage");
+        }
+        #endregion
+
+
 
 
 

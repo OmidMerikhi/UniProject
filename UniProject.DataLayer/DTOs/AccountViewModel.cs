@@ -70,4 +70,53 @@ namespace UniProject.DataLayer.DTOs
         [Display(Name = "مرا بخاطر بسپار")]
         public bool RememberMe { set; get; }
     }
+
+    public class EditViewModel
+    {
+        public int Id { set; get; }
+
+
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = "نام")]
+        public string Name { set; get; }
+
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = "نام خانوادگی")]
+        public string Family { set; get; }
+
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = "سن")]
+        public int Age { set; get; }
+
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = "تلفن")]
+        public string Phone { set; get; }
+
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = "ایمیل")]
+        public string Email { set; get; }
+
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = "شهر محل سکونت")]
+        public string City { set; get; }
+    }
+
+    public class ResetPasswordViewModel
+    {
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = " پسوورد فعلی")]
+        [DataType(DataType.Password)]
+        public string CurrentPassword { set; get; }
+
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = "پسوورد جدید")]
+        [DataType(DataType.Password)]
+        public string NewPassword { set; get; }
+
+        [Required(ErrorMessage = "لطفا {0} را تکمیل کنید")]
+        [Display(Name = "تکرار پسوورد جدید")]
+        [DataType(DataType.Password)]
+        [Compare("NewPassword",ErrorMessage ="تکرار پسوورد جدید اشتباه است")]
+        public string ReNewPassword { set; get; }
+    }
 }

@@ -18,9 +18,9 @@
 
                     <div class="card-body">
                         <ul>
-                            <li><a href="#">مشاهده حساب کاربری</a></li>
-                            <li><a href="#">ویرایش حساب کاربری</a></li>
-                            <li><a href="#">تغییر کلمه عبور</a></li>
+                            <li><a href="/User/UserPage">مشاهده حساب کاربری</a></li>
+                            <li><a asp-controller="User" asp-action="EditUserPage" asp-route-id="@Model.Id">ویرایش حساب کاربری</a></li>
+                            <li><a href="/User/ResetPassword">تغییر کلمه عبور</a></li>
                             <li><a href="#">دکتر های خود</a></li>
                             <li><a href="#">مشاهده سوابق مشاوره</a></li>
                             <li><a href="#">رزرو مشاوره</a></li>

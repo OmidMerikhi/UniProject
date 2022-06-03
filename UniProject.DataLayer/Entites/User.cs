@@ -9,7 +9,7 @@ namespace UniProject.DataLayer.Entites
 {
     public class User
     {
-        [Key]
+        
         public int Id { set; get; }
         public string Name { set; get; }
         public string Family { set; get; }

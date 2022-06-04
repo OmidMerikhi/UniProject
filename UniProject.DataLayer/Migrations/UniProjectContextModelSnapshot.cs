@@ -67,8 +67,9 @@ namespace UniProject.DataLayer.Migrations
                     b.Property<int>("SpecialtyId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SpecialtyTitle")
-                        .HasColumnType("int");
+                    b.Property<string>("SpecialtyTitle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");

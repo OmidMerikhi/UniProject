@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,7 +17,7 @@ namespace UniProject.DataLayer.Entites
         public string Name { set; get; }
         public string Family { set; get; }
         public string MedicalCode { set; get; }
-        public int SpecialtyTitle { set; get; }
+        public string SpecialtyTitle { set; get; }
         public bool Gender { set; get; }
         public string OfficePhone { set; get; }
         public string OfficeAddress { set; get; }

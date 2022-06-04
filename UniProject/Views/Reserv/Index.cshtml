@@ -1,0 +1,44 @@
+﻿@model List<Specialty>
+@{
+    ViewData["Title"] = "دپارتمان ها";
+}
+<style>
+    img {
+        transition: all ease-in-out 0.3s;
+    }
+
+    img:hover {
+        filter: grayscale(70%);
+    }
+</style>
+<div style="background-color:#DADADA;">
+    <center>
+        <br><br /><br><br /><br><br />
+        <h3>
+            <b>در چه زمینه ای دکتر میخواهید ؟</b>
+        </h3>
+    </center>
+    <hr />
+    <br />
+    <div class="row">
+        @foreach (var d in Model)
+        {
+
+            <div class="col-md-4" style="margin-top:20px;width:250px;">
+                <div class="card text-center" style="color:black;border:0.3px #8F9B90 solid;">
+                    <a asp-controller="Reserv" asp-action="ReservDetail" asp-route-id="@d.Id">
+                        <img src="/images/speciality/@(d.Id).jpg" style="height:300px;" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text"><h5><b>@d.Title</b></h5></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+        }
+
+    </div>
+    <br /><br /><br />
+</div>
+

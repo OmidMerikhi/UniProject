@@ -1,4 +1,9 @@
-﻿@font-face{
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    font-family: yekan;
+}
+@font-face{
     font-family:farsi;
     src:url("../fonts/Mj_Farsi Simple Normal_0.ttf");
 
@@ -9,6 +14,6 @@
     src:url("../fonts/Yekan.ttf");
 }
 
-*{
-    font-family:yekan;
+.img1 {
+    filter:blur(65px);
 }

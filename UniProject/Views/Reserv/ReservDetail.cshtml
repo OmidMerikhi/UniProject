@@ -1,0 +1,59 @@
+﻿@model Specialty
+@{
+    ViewData["Title"] = "گروه " + Model.Title;
+}
+
+<div style="background-image:url('/userImages/back-user-page.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;">
+    <br /><br /><br /><br /><br /><br />
+    <div class="row" style="color:black;">
+
+        <center>
+            <h3><b>گروه @Model.Title</b></h3>
+        </center>
+        <br /><br /><br /><br />
+
+        <center>
+            <div class="col-md-5" style="float:right;margin-right:200px;">
+                <b>@Model.Description</b>
+            </div>
+            <div class="col-md-7">
+                <img src="/images/speciality/@(Model.Id).jpg" style="width:350px;height:300px;border-radius:20px;" />
+            </div>
+
+            <br /><br /><br /><br />
+            <table class="table col-md-6 text-center" style="background-color:white;">
+                <tr class="thead-dark">
+                    <th></th>
+                    <th>نام دکتر</th>
+                    <th>تخصص</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                @foreach (var d in Model.Doctors)
+                {
+                    <tr>
+                        <td>
+                            image
+                        </td>
+                        <td>
+                            @d.Name @d.Family
+                        </td>
+                        <td>
+                            @d.SpecialtyTitle
+                        </td>
+                        <td>
+                            <a class="btn btn-success" href="#">دریافت نوبت</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="#">مشاهده اطلاعات</a>
+                        </td>
+                    </tr>
+
+                }
+            </table>
+        </center>
+
+
+    </div>
+    <br /><br />
+</div>

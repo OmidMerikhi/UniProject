@@ -17,7 +17,18 @@ namespace UniProject.DataLayer
 
         public DbSet<User> Users { set; get; }
         public DbSet<Doctor> Doctors { set; get; }
-        public DbSet<DiseaseCategory> Diseases { set; get; }
+        public DbSet<Present> Prepresents { set; get; }
+        public DbSet<Specialty> Specialtys { set; get; }
+        public DbSet<Sickness> Sickness { set; get; }
+        public DbSet<DoctorToPresent> DoctorToPresents { set; get; }
+        public DbSet<Reservs> Reservs { set; get; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<DoctorToPresent>().HasKey(k => new { k.DoctorId, k.PresentId });
+            base.OnModelCreating(modelBuilder);
+        }
 
     }
 }

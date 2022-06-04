@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="~/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="~/css/myStyle.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    
+
     <style>
         .dropdown {
             position: relative;
@@ -78,7 +78,6 @@
                     <li class="nav-item"><a href="#doctor-section" class="nav-link"><span>دکتر ها</span></a></li>
 
                     <li class="nav-item"><a href="#contact-section" class="nav-link"><span>تماس با ما</span></a></li>
-                    <li class="nav-item cta mr-md-2"><a href="appointment.html" class="nav-link">قرار ملاقات</a></li>
 
 
 
@@ -90,9 +89,9 @@
                             <div class="dropdown">
                                 <span><a href="/User/UserPage" style="color:#117864;" class="nav-link"><img src="~/userImages/user-logo.png" style="width:30px;height:30px" /> <b>@User.FindFirstValue("FullName")</b></a> </span>
                                 <div class="dropdown-content" style="border-radius:10px;">
-                                    <a href="#">مشاهده حساب کاربری</a>
-                                    <a href="#">ویرایش حساب کاربری</a>
-                                    <a href="#">تغییر کلمه عبور</a><br>
+                                    <a href="/User/UserPage">مشاهده حساب کاربری</a>
+                                    <a asp-controller="User" asp-action="EditUserPage" asp-route-id="@(int.Parse(User.FindFirstValue("UserId")))">ویرایش حساب کاربری</a>
+                                    <a href="/User/ResetPassword">تغییر کلمه عبور</a><br>
                                     <a href="/User/Logout" style="color:red;">خروج </a>
 
                                 </div>

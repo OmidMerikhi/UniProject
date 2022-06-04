@@ -6,9 +6,11 @@ using System.Security.Claims;
 using System.Security;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UniProject.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private IUserRepository _repository;
@@ -19,12 +21,14 @@ namespace UniProject.Controllers
 
 
         #region Login
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult Login(LoginViewModel login)
         {
             if(!ModelState.IsValid)
@@ -42,10 +46,11 @@ namespace UniProject.Controllers
             {
                 var claims = new List<Claim>()
                 {
+                    new Claim("UserId",user.Id.ToString()),
                     new Claim("Email",user.Email),
                     new Claim("FullName",user.Name+" "+user.Family),
-                    new Claim("IsAdmin",user.IsAdmin.ToString()),
-                    new Claim("UserId",user.Id.ToString())
+                    new Claim("IsAdmin",user.IsAdmin.ToString())
+                    
 
                 };
 
@@ -73,12 +78,14 @@ namespace UniProject.Controllers
         #endregion
 
         #region Register
+        [AllowAnonymous]
         public IActionResult Register()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IActionResult Register(RegisterViewModel register)
         {
             if (!ModelState.IsValid)

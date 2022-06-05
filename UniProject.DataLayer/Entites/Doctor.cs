@@ -21,10 +21,12 @@ namespace UniProject.DataLayer.Entites
         public bool Gender { set; get; }
         public string OfficePhone { set; get; }
         public string OfficeAddress { set; get; }
+        public string OfficeName { set; get; }
         public string Email { set; get; }
         public string City { set; get; }
 
         [ForeignKey("SpecialtyId")]
         public  Specialty Specialty { set; get; }
+        public List<DoctorToPresent> DoctorToPresents { set; get; }
     }
 }

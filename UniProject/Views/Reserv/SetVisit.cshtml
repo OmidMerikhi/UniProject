@@ -1,7 +1,7 @@
-﻿@model User
+﻿@model ResultSetVisitViewModel
 
 @{
-    ViewData["Title"] = "داشبورد";
+    ViewData["Title"] = "پیام سیستم";
 }
 <div style="background-image:url('/userImages/back-user-page.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;">
     <div class="container">
@@ -12,14 +12,14 @@
                         <img src="~/userImages/avatar.jpg" style="width:110px;height:110px;border-radius:60px; margin-right:70px; margin-top:40px;" class="card-img-top">
 
                         <center>
-                            <h5 style="margin-top:10px;">@Model.Name @Model.Family</h5>
+                            <h5 style="margin-top:10px;">@Model.Username</h5>
                         </center>
                     </div>
 
                     <div class="card-body">
                         <ul style="margin-right:50px;">
                             <li><a href="/User/UserPage">مشاهده حساب کاربری</a></li>
-                            <li><a asp-controller="User" asp-action="EditUserPage" asp-route-id="@Model.Id">ویرایش حساب کاربری</a></li>
+                            <li><a asp-controller="User" asp-action="EditUserPage" asp-route-id="@ViewData["userId"]">ویرایش حساب کاربری</a></li>
                             <li><a href="/User/ResetPassword">تغییر کلمه عبور</a></li>
                             <li><a href="#">دکتر های خود</a></li>
                             <li><a href="/Reserv/PersonReservs">مشاهده سوابق رزرو</a></li>
@@ -34,47 +34,52 @@
 
             <div class="col-md-8">
                 <div class="card" style="margin-top:200px;margin-bottom:200px;">
-                    <div class="card-img-top" style="background-color:aqua;height:150px;">
-                        <img src="~/userImages/header-user-page.jpg" style="width:100%;height:150px;" class="card-img-top" alt="...">
+                    <div class="card-img-top" style="height:150px;">
+                        @*<img src="~/userImages/header-user-page.jpg" style="width:100%;height:150px;" class="card-img-top" alt="...">*@
+                        <div class="alert alert-success card-img-top" style="width:100%;height:150px;background-color:#76D87E;">
+                            <center>
+                                <h4>
+                                    <b>
+                                        رزرو شما با موفقیت ثبت شد.<br /><br />
+                                        کد رزرو شما: @ViewBag.code
+                                    </b>
+                                </h4>
+                            </center>
+                        </div>
                     </div>
 
                     <div class="card-body">
-                        <h5 class="card-title">اطلاعات حساب کاربری</h5>
+                        <h5 class="card-title"><b>اطلاعات نهایی</b></h5>
                         <br />
                         <table class="table table-hover">
                             <tr>
-                                <td>نام</td>
-                                <td>@Model.Name</td>
+                                <td>نام بیمار </td>
+                                <td>@Model.Username</td>
                             </tr>
                             <tr>
-                                <td>نام خانوادگی</td>
-                                <td>@Model.Family</td>
+                                <td>نام دکتر</td>
+                                <td>@Model.Doctor.Name @Model.Doctor.Family</td>
                             </tr>
                             <tr>
-                                <td>کد ملی</td>
-                                <td>@Model.MeliCode</td>
+                                <td>زمان مراجعه:</td>
+                                <td>@Model.VisitDate</td>
                             </tr>
                             <tr>
-                                <td>تلفن</td>
-                                <td>@Model.Phone</td>
+                                <td>نام مطب:</td>
+                                <td>@Model.Doctor.OfficeName</td>
                             </tr>
                             <tr>
-                                <td>ایمیل</td>
-                                <td>@Model.Email</td>
+                                <td>آدرس مطب:</td>
+                                <td>@Model.Doctor.OfficeAddress</td>
                             </tr>
                             <tr>
-                                <td>سن</td>
-                                <td>@Model.Age</td>
+                                <td>تلفن مطب:</td>
+                                <td>@Model.Doctor.OfficePhone</td>
                             </tr>
                             <tr>
-                                <td>شهر محل سکونت</td>
-                                <td>@Model.City</td>
+                                <td>کد رزو:</td>
+                                <td>@ViewBag.code</td>
                             </tr>
-                            <tr>
-                                <td>تاریخ عضویت</td>
-                                <td>@Model.JoinDate</td>
-                            </tr>
-                            
 
                         </table>
                     </div>

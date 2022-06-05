@@ -7,5 +7,10 @@ namespace UniProject.Repositories
     {
         List<Specialty> GetAllSpecialty();
         Specialty GetSpecialtyById(int id);
+        Doctor GetDoctorById(int id);
+        List<Present> GetTimes(int doctorId);
+        Present GetPresentById(int id);
+        void AddReserve(Reservs reserve);
+        List<Reservs> GetPersonReservs(int userId);
     }
 }

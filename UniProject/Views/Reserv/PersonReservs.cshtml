@@ -1,0 +1,89 @@
+﻿@model IEnumerable<PersonReserveViewModel>
+@using System.Globalization;
+
+@{
+    ViewData["Title"] = "سوابق رزرو";
+    int count = 1;
+    PersianCalendar p = new PersianCalendar();
+
+}
+<div style="background-image:url('/userImages/back-user-page.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card" style="margin-top:200px;margin-bottom:200px;">
+                    <div class="card-img-top" style="background-color:#C5DBCC;height:200px;">
+                        <img src="~/userImages/avatar.jpg" style="width:110px;height:110px;border-radius:60px; margin-right:70px; margin-top:40px;" class="card-img-top">
+
+                        <center>
+                            <h5 style="margin-top:10px;">@ViewData["Username"]</h5>
+                        </center>
+                    </div>
+
+                    <div class="card-body">
+                        <ul style="margin-right:50px;">
+                            <li><a href="/User/UserPage">مشاهده حساب کاربری</a></li>
+                            <li><a asp-controller="User" asp-action="EditUserPage" asp-route-id="@ViewData["userId"]">ویرایش حساب کاربری</a></li>
+                            <li><a href="/User/ResetPassword">تغییر کلمه عبور</a></li>
+                            <li><a href="#">دکتر های خود</a></li>
+                            <li><a href="#">مشاهده سوابق رزرو</a></li>
+                            <li><a href="/Reserv/Index">رزرو مشاوره</a></li>
+                            <li><a href="/User/Logout" style="color:red;">خروج </a></li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card" style="margin-top:200px;margin-bottom:200px;">
+                    <div class="card-img-top" style="background-color:aqua;height:150px;">
+                        <img src="~/userImages/header-user-page.jpg" style="width:100%;height:150px;" class="card-img-top" alt="...">
+                    </div>
+
+                    <div class="card-body">
+                        <center>
+                            <h5 class="card-title"><b>سوابق رزرو</b></h5>
+                        </center>
+                        <br />
+
+                        <table class="table table-hover text-center">
+
+                            <tr>
+                                <th>#</th>
+                                <th>تاریخ درخواست</th>
+                                <th>دپارتمان</th>
+                                <th>نام دکتر</th>
+                                <th>روز و ساعت ملاقات</th>
+                            </tr>
+                            @foreach (var i in @Model)
+                            {
+                                <tr>
+                                    <td>@count</td>
+                                    <td>
+                                        @{
+                                            var res = $"{p.GetYear(i.RequestDate)}/{p.GetMonth(i.RequestDate)}/{p.GetDayOfMonth(i.RequestDate)}";
+                                            count += 1;
+                                        }
+                                        @res
+                                    </td>
+                                    <td>@i.SpecialityTitle</td>
+                                    <td><a href="#">@i.Doctor.Name @i.Doctor.Family</a></td>
+                                    <td>@i.VisitDate</td>
+                                </tr>
+                                
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+

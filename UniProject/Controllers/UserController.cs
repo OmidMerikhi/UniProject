@@ -85,7 +85,6 @@ namespace UniProject.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult Register(RegisterViewModel register)
         {
             if (!ModelState.IsValid)

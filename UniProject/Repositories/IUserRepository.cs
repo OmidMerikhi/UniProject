@@ -11,5 +11,7 @@ namespace UniProject.Repositories
         User GetUserById(int id);
         void EditUser(User user);
         bool ExistUserByPassword(string password);
+        List<User> GetAllUsers();
+        void DeleteUser(int id);
     }
 }

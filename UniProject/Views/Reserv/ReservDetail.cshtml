@@ -27,7 +27,6 @@
                     <th>نام دکتر</th>
                     <th>تخصص</th>
                     <th></th>
-                    <th></th>
                 </tr>
                 @foreach (var d in Model.Doctors)
                 {
@@ -43,9 +42,6 @@
                         </td>
                         <td>
                             <a class="btn btn-success" asp-controller="Reserv" asp-action="GetVisit" asp-route-doctorId="@d.Id" >دریافت نوبت</a>
-                        </td>
-                        <td>
-                            <a class="btn btn-primary" href="#">مشاهده اطلاعات</a>
                         </td>
                     </tr>
 

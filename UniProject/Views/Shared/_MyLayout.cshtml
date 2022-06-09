@@ -89,6 +89,10 @@
                             <div class="dropdown">
                                 <span><a href="/User/UserPage" style="color:#117864;" class="nav-link"><img src="~/userImages/user-logo.png" style="width:30px;height:30px" /> <b>@User.FindFirstValue("FullName")</b></a> </span>
                                 <div class="dropdown-content" style="border-radius:10px;">
+                                    @if (bool.Parse(User.FindFirstValue("IsAdmin")))
+                                    {
+                                        <a href="Admin/Index" style="color:green;">پنل ادمین</a><br />
+                                    }
                                     <a href="/User/UserPage">مشاهده حساب کاربری</a>
                                     <a asp-controller="User" asp-action="EditUserPage" asp-route-id="@(int.Parse(User.FindFirstValue("UserId")))">ویرایش حساب کاربری</a>
                                     <a href="/User/ResetPassword">تغییر کلمه عبور</a><br>

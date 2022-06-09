@@ -16,6 +16,13 @@ namespace UniProject.Repositories
             _context.SaveChanges();
         }
 
+        public void DeleteUser(int id)
+        {
+            var user = _context.Users.Find(id);
+            _context.Users.Remove(user);
+            _context.SaveChanges();
+        }
+
         public void EditUser(User user)
         {
             _context.Update(user);
@@ -30,6 +37,11 @@ namespace UniProject.Repositories
         public bool ExistUserByPassword(string password)
         {
             return _context.Users.Any(u => u.Password == password);
+        }
+
+        public List<User> GetAllUsers()
+        {
+            return _context.Users.ToList();
         }
 
         public User GetUserByEmail(string email)

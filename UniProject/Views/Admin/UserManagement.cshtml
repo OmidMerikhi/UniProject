@@ -1,0 +1,75 @@
+﻿@model List<User>
+@using System.Globalization;
+@{
+    ViewData["Title"] = "مدیریت کاربران";
+    int count = 0;
+    PersianCalendar p = new PersianCalendar();
+
+}
+<div style="background-image:url('/userImages/back-user-page.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;">
+    <div class="container">
+        <div class="row">
+
+
+            <center>
+                <div class="col-md-12">
+                    <div class="card" style="margin-top:200px;margin-bottom:200px;">
+                        <div class="card-img-top">
+                            <img src="~/userImages/header-user-page.jpg" style="width:100%;height:0px;" class="card-img-top" alt="...">
+                        </div>
+
+                        <div class="card-body" style="color:black;">
+
+                            <a class="btn btn-success col-md-6" asp-controller="Admin" asp-action="AddUser">افزودن کاربر</a>
+                            <br />
+                            <br />
+                            <table class="table table-hover text-center">
+                                <tr>
+                                    <th>#</th>
+                                    <th>نام کاربر</th>
+                                    <th>شماره ملی</th>
+                                    <th>پسوورد</th>
+                                    <th>تاریخ عضویت</th>
+                                    <th>دسترسی ادمین</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                @foreach (var u in Model)
+                                {
+                                    <tr>
+                                        <td>@(count+=1)</td>
+                                        <td>@u.Name @u.Family</td>
+                                        <td>@u.MeliCode</td>
+                                        <td>@u.Password</td>
+                                        <td>
+                                            @{
+                                                var res = $"{p.GetYear(u.JoinDate)}/{p.GetMonth(u.JoinDate)}/{p.GetDayOfMonth(u.JoinDate)}";
+
+                                            }
+                                            @res
+                                        </td>
+                                        @if (@u.IsAdmin)
+                                        {
+                                            <td>بله</td>
+                                        }
+                                        else
+                                        {
+                                            <td>خیر</td>
+                                        }
+                                        <td><a class="btn btn-warning col-md-9" asp-controller="Admin" asp-action="EditUser" asp-route-id="@u.Id">ویرایش</a></td>
+                                        <td><a class="btn btn-danger col-md-9" asp-controller="Admin" asp-action="DeleteUser" asp-route-id="@u.Id">حذف</a></td>
+                                    </tr>
+                                }
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </center>
+
+        </div>
+
+    </div>
+
+</div>

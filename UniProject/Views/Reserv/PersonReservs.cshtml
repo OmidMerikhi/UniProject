@@ -56,6 +56,7 @@
                                 <th>دپارتمان</th>
                                 <th>نام دکتر</th>
                                 <th>روز و ساعت ملاقات</th>
+                                <th>تاریخ رزرو شده</th>
                             </tr>
                             @foreach (var i in @Model)
                             {
@@ -71,6 +72,12 @@
                                     <td>@i.SpecialityTitle</td>
                                     <td><a href="#">@i.Doctor.Name @i.Doctor.Family</a></td>
                                     <td>@i.VisitDate</td>
+                                    <td>
+                                        @{
+                                            var res2 = $"{p.GetYear(i.FinalDate)}/{p.GetMonth(i.FinalDate)}/{p.GetDayOfMonth(i.FinalDate)}";
+                                        }
+                                        @res2
+                                    </td>
                                 </tr>
                                 
                             }

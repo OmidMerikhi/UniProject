@@ -15,6 +15,7 @@ namespace UniProject.DataLayer.Entites
         public string VisitDate { set; get; }
         public string ReservationCode { set; get; }
         public DateTime RequestDate { set; get; }
+        public DateTime FinalDate { set; get; }
 
         [ForeignKey("DoctorId")]
         public Doctor Doctor { set; get; }

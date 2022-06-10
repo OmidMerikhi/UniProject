@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniProject.DataLayer;
 
@@ -11,9 +12,10 @@ using UniProject.DataLayer;
 namespace UniProject.DataLayer.Migrations
 {
     [DbContext(typeof(UniProjectContext))]
-    partial class UniProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20220610102807_EditPresentModel")]
+    partial class EditPresentModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -131,9 +133,6 @@ namespace UniProject.DataLayer.Migrations
 
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("FinalDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("RequestDate")
                         .HasColumnType("datetime2");

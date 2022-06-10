@@ -233,5 +233,12 @@ namespace UniProject.Controllers
 
 
         #endregion
+
+        #region ReserveManagement
+        public IActionResult ShowReserves()
+        {
+            return View();
+        }
+        #endregion
     }
 }

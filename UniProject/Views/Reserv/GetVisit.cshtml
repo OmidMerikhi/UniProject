@@ -1,7 +1,11 @@
 ﻿@model GetVisitViewModel
+@using System.Globalization;
 
 @{
     ViewData["Title"] = "دریافت نوبت";
+    int index = 0;
+    PersianCalendar p = new PersianCalendar();
+
 }
 <div style="background-image:url('/userImages/back-user-page.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;">
     <div class="container">
@@ -38,6 +42,7 @@
                             <table class="table table-hover text-center">
                                 <tr>
                                     <th>نام روز</th>
+                                    <th>تاریخ</th>
                                     <th>ساعت های حضور</th>
                                     <th></th>
                                 </tr>
@@ -45,8 +50,16 @@
                                 {
                                     <tr>
                                         <td>@t.DayPresent</td>
+                                        <td>
+                                            @{
+                                                var miladiDate = Model.Dates[index];
+                                                var date = $"{p.GetYear(Model.Dates[index])}/{p.GetMonth(Model.Dates[index])}/{p.GetDayOfMonth(Model.Dates[index])}";
+                                                index++;
+                                            }
+                                            @date
+                                        </td>
                                         <td>@t.HoursPresent</td>
-                                        <td><a asp-controller="Reserv" asp-action="SetVisit" asp-route-doctorId="@Model.Doctor.Id" asp-route-presentId="@t.Id" class="btn btn-primary">انتخاب</a></td>
+                                        <td><a asp-controller="Reserv" asp-action="SetVisit" asp-route-doctorId="@Model.Doctor.Id" asp-route-presentId="@t.Id" asp-route-date="@miladiDate" class="btn btn-primary">انتخاب</a></td>
                                     </tr>
                                 }
                             </table>

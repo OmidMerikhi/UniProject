@@ -1,7 +1,9 @@
 ﻿@model ResultSetVisitViewModel
+@using System.Globalization;
 
 @{
     ViewData["Title"] = "پیام سیستم";
+    PersianCalendar p = new PersianCalendar();
 }
 <div style="background-image:url('/userImages/back-user-page.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;">
     <div class="container">
@@ -61,7 +63,16 @@
                                 <td>@Model.Doctor.Name @Model.Doctor.Family</td>
                             </tr>
                             <tr>
-                                <td>زمان مراجعه:</td>
+                                <td>تاریخ مراجعه:</td>
+                                <td>
+                                    @{
+                                        var res = $"{p.GetYear(@Model.FinalDate)}/{p.GetMonth(@Model.FinalDate)}/{p.GetDayOfMonth(@Model.FinalDate)}";
+                                    }
+                                    @res
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>روز و ساعت مراجعه:</td>
                                 <td>@Model.VisitDate</td>
                             </tr>
                             <tr>

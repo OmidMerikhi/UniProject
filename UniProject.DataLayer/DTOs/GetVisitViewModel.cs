@@ -11,5 +11,6 @@ namespace UniProject.DataLayer.DTOs
     {
         public Doctor Doctor { set; get; }
         public List<Present> PresentOptions { set; get; }
+        public List<DateTime> Dates { set; get; }
     }
 }

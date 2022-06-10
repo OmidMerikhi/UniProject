@@ -12,5 +12,6 @@ namespace UniProject.DataLayer.DTOs
         public string Username { get; set; }
         public Doctor Doctor { set; get; }
         public string VisitDate { set; get; }
+        public DateTime FinalDate { set; get; }
     }
 }

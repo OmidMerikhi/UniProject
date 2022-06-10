@@ -11,6 +11,7 @@ namespace UniProject.DataLayer.Entites
         public int Id { set; get; }
         public string DayPresent { set; get; }
         public string HoursPresent { set; get; }
+        public string Day { set; get; }
 
         public List<DoctorToPresent> DoctorToPresents { set; get; }
 

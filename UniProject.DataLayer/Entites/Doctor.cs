@@ -18,7 +18,6 @@ namespace UniProject.DataLayer.Entites
         public string Family { set; get; }
         public string MedicalCode { set; get; }
         public string SpecialtyTitle { set; get; }
-        public bool Gender { set; get; }
         public string OfficePhone { set; get; }
         public string OfficeAddress { set; get; }
         public string OfficeName { set; get; }

@@ -13,5 +13,6 @@ namespace UniProject.Repositories
         bool ExistUserByPassword(string password);
         List<User> GetAllUsers();
         void DeleteUser(int id);
+        List<User> SearchUser(string search);
     }
 }

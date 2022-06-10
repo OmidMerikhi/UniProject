@@ -91,7 +91,7 @@
                                 <div class="dropdown-content" style="border-radius:10px;">
                                     @if (bool.Parse(User.FindFirstValue("IsAdmin")))
                                     {
-                                        <a href="Admin/Index" style="color:green;">پنل ادمین</a><br />
+                                        <a href="/Admin/Index" style="color:green;">پنل ادمین</a><br />
                                     }
                                     <a href="/User/UserPage">مشاهده حساب کاربری</a>
                                     <a asp-controller="User" asp-action="EditUserPage" asp-route-id="@(int.Parse(User.FindFirstValue("UserId")))">ویرایش حساب کاربری</a>

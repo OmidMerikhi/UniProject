@@ -23,6 +23,10 @@
                             <a class="btn btn-success col-md-6" asp-controller="Admin" asp-action="AddUser">افزودن کاربر</a>
                             <br />
                             <br />
+                            <form asp-controller="Admin" asp-action="SearchUser">
+                                <input type="text" class="text-center" name="search" placeholder="جستجوی کاربر" style="width:400px;" />
+                                <br /><br />
+                            </form> 
                             <table class="table table-hover text-center">
                                 <tr>
                                     <th>#</th>

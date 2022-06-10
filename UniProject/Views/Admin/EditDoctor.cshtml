@@ -1,0 +1,91 @@
+﻿@model UniProject.DataLayer.Entites.Doctor
+@{
+    ViewData["Title"] = "ویرایش دکتر";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body >
+    <div style="background-color:#CCF49E;">
+        <hr />
+    <div class="row">
+        <center>
+            <div class="col-md-4" style="margin-top:120px;">
+                <h4>ویرایش دکتر</h4><br /><br />
+                <form asp-action="EditDoctor" style="color:black;">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="Family" class="control-label"></label>
+                        <input asp-for="Family" class="form-control" />
+                        <span asp-validation-for="Family" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="MedicalCode" class="control-label"></label>
+                        <input asp-for="MedicalCode" class="form-control" />
+                        <span asp-validation-for="MedicalCode" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="SpecialtyTitle" class="control-label"></label>
+                        <input asp-for="SpecialtyTitle" class="form-control" />
+                        <span asp-validation-for="SpecialtyTitle" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="OfficePhone" class="control-label"></label>
+                        <input asp-for="OfficePhone" class="form-control" />
+                        <span asp-validation-for="OfficePhone" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="OfficeAddress" class="control-label"></label>
+                        <input asp-for="OfficeAddress" class="form-control" />
+                        <span asp-validation-for="OfficeAddress" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="OfficeName" class="control-label"></label>
+                        <input asp-for="OfficeName" class="form-control" />
+                        <span asp-validation-for="OfficeName" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label asp-for="City" class="control-label"></label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <input type="submit" value="Edit" class="btn btn-primary col-md-4" />
+                    </div>
+                </form>
+
+            </div>
+        </center>
+    </div>
+
+
+    </div>
+
+    
+
+</body>
+</html>
+

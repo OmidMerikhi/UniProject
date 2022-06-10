@@ -1,0 +1,64 @@
+﻿@model List<Doctor>
+@using System.Globalization;
+@{
+    ViewData["Title"] = "مدیریت دکتران";
+    int count = 0;
+    PersianCalendar p = new PersianCalendar();
+
+}
+<div style="background-image:url('/userImages/back-user-page.jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover;">
+    <div class="container">
+        <div class="row">
+
+
+            <center>
+                <div class="col-md-12">
+                    <div class="card" style="margin-top:200px;margin-bottom:200px;">
+                        <div class="card-img-top">
+                            <img src="~/userImages/header-user-page.jpg" style="width:100%;height:0px;" class="card-img-top" alt="...">
+                        </div>
+
+                        <div class="card-body" style="color:black;">
+
+                            <a class="btn btn-success col-md-6" asp-controller="Admin" asp-action="AddDoctor">افزودن دکتر</a>
+                            <br />
+                            <br />
+                            <form asp-controller="Admin" asp-action="SearchDoctor">
+                                <input type="text" class="text-center" name="search" placeholder="جستجوی دکتر" style="width:400px;" />
+                                <br /><br />
+                            </form>
+                            <table class="table table-hover text-center">
+                                <tr>
+                                    <th>#</th>
+                                    <th>نام دکتر</th>
+                                    <th>تخصص</th>
+                                    <th>شماره نظام پزشکی</th>
+                                    <th>نام مطب</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                @foreach (var d in Model)
+                                {
+                                    <tr>
+                                        <td>@(count+=1)</td>
+                                        <td>@d.Name @d.Family</td>
+                                        <td>@d.SpecialtyTitle</td>
+                                        <td>@d.MedicalCode</td>
+                                        <td>@d.OfficeName</td>
+                                        <td><a class="btn btn-warning col-md-9" asp-controller="Admin" asp-action="EditDoctor" asp-route-id="@d.Id">ویرایش</a></td>
+                                        <td><a class="btn btn-danger col-md-9" asp-controller="Admin" asp-action="DeleteDoctor" asp-route-id="@d.Id">حذف</a></td>
+                                    </tr>
+                                }
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </center>
+
+        </div>
+
+    </div>
+
+</div>

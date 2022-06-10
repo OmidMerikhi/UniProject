@@ -14,6 +14,8 @@ builder.Services.AddDbContext<UniProjectContext>(option =>
 #region IoC
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IReservRepository, ReservRepository>();
+builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
+
 #endregion
 
 #region Authentication

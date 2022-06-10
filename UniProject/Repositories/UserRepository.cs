@@ -58,5 +58,10 @@ namespace UniProject.Repositories
         {
             return _context.Users.Any(u => u.Email == email && u.Password == password);
         }
+
+        public List<User> SearchUser(string search)
+        {
+            return _context.Users.Where(u => u.Name.Contains(search) || u.Family.Contains(search) || u.MeliCode.Contains(search) || u.Email.Contains(search)).ToList();
+        }
     }
 }
